@@ -24,7 +24,9 @@ def manhattan(a, b):
     moves between two cells is ALWAYS at least their Manhattan distance.
     Obstacles can only force a detour, never a shortcut.
     """
-    raise NotImplementedError("Part 3: implement manhattan")
+    r1, c1 = a
+    r2, c2 = b
+    return abs(r1 - r2) + abs(c1 - c2)
 
 
 def h0(state, problem):
@@ -34,7 +36,7 @@ def h0(state, problem):
     into uniform-cost search, which is your experimental baseline for "what
     does an uninformed optimal search cost?"
     """
-    raise NotImplementedError("Part 3: implement h0")
+    return 0
 
 
 def h1(state, problem):
@@ -43,7 +45,8 @@ def h1(state, problem):
     Admissible because each remaining dirty cell needs at least its own
     CLEAN action, and CLEAN costs 1.
     """
-    raise NotImplementedError("Part 3: implement h1")
+    pos, dirty_set = state
+    return len(dirty_set)
 
 
 def h2(state, problem):
@@ -56,7 +59,12 @@ def h2(state, problem):
     can clean anything, and reaching the nearest one is the cheapest way to
     do that.
     """
-    raise NotImplementedError("Part 3: implement h2")
+    pos, dirty_set = state
+    if not dirty_set:
+        return 0
+
+    min_dist = min(manhattan(pos, dirty_pos) for dirty_pos in dirty_set)
+    return len(dirty_set) + min_dist
 
 
 def h3(state, problem):
