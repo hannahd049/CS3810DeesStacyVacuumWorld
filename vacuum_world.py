@@ -47,7 +47,11 @@ class VacuumWorld:
         Suggested attributes to set here: self.grid, self.rows, self.cols,
         self.start, self.dirty.
         """
-        raise NotImplementedError("Part 1: implement VacuumWorld.__init__")
+        self.grid = grid
+        self.rows = len(grid)
+        self.cols = len(grid[0]) if self.rows > 0 else 0
+        self.start = tuple(start)
+        self.dirty = frozenset(dirty)
 
     # -- helpers ---------------------------------------------------------
     # These two are not graded directly and not called by the test harness,
@@ -55,21 +59,24 @@ class VacuumWorld:
 
     def in_bounds(self, pos):
         """Return True if pos is inside the grid."""
-        raise NotImplementedError("Part 1: implement in_bounds (optional)")
+        r, c = pos
+        return 0 <= r < self.rows and 0 <= c < self.cols
 
     def is_passable(self, pos):
         """Return True if pos is in bounds and is not an obstacle."""
-        raise NotImplementedError("Part 1: implement is_passable (optional)")
+        r, c = pos
+        return self.in_bounds(pos) and self.grid[r][c] != '#'
 
     # -- problem interface -----------------------------------------------
 
     def initial_state(self):
         """Return the initial state as ((row, col), frozenset(dirty))."""
-        raise NotImplementedError("Part 1: implement initial_state")
+        return (self.start, self.dirty)
 
     def is_goal(self, state):
         """Return True if the dirty set in `state` is empty."""
-        raise NotImplementedError("Part 1: implement is_goal")
+        _, dirty_set = state
+        return len(dirty_set) == 0
 
     def get_actions(self, state):
         """Return a list of legal action names available in `state`.
@@ -78,18 +85,43 @@ class VacuumWorld:
         only offered when the robot's current cell is dirty. Return the
         actions in ACTION_ORDER order.
         """
-        raise NotImplementedError("Part 1: implement get_actions")
+        pos, dirty_set = state
+        r, c = pos
+        actions = []
+
+        for action in ACTION_ORDER:
+            if action in DELTAS:
+                dr, dc = DELTAS[action]
+                next_pos = (r + dr, c + dc)
+                if self.is_passable(next_pos):
+                    actions.append(action)
+            elif action == 'CLEAN':
+                if pos in dirty_set:
+                    actions.append(action)
+
+        return actions
 
     def result(self, state, action):
         """Return the successor state produced by applying `action`.
 
         Must not modify `state`.
         """
-        raise NotImplementedError("Part 1: implement result")
+        pos, dirty_set = state
+        r, c = pos
+
+        if action in DELTAS:
+            dr, dc = DELTAS[action]
+            new_pos = (r + dr, c + dc)
+            return (new_pos, dirty_set)
+        elif action == 'CLEAN':
+            new_dirty = dirty_set - {pos}
+            return (pos, new_dirty)
+
+        return state
 
     def action_cost(self, state, action):
         """Return the cost of `action` in `state` (always 1 here)."""
-        raise NotImplementedError("Part 1: implement action_cost")
+        return 1
 
     # -- debugging -------------------------------------------------------
 
@@ -102,7 +134,32 @@ class VacuumWorld:
         This is not graded for correctness, but you will use it constantly
         while debugging. Write it first.
         """
-        raise NotImplementedError("Part 1: implement render")
+        if state is None:
+            state = self.initial_state()
+
+        pos, dirty_set = state
+        lines = []
+
+        for r in range(self.rows):
+            row_chars = []
+            for c in range(self.cols):
+                cell_pos = (r, c)
+                is_robot = (cell_pos == pos)
+                is_dirty = (cell_pos in dirty_set)
+
+                if self.grid[r][c] == '#':
+                    row_chars.append('#')
+                elif is_robot and is_dirty:
+                    row_chars.append('*')
+                elif is_robot:
+                    row_chars.append('R')
+                elif is_dirty:
+                    row_chars.append('D')
+                else:
+                    row_chars.append('.')
+            lines.append("".join(row_chars))
+
+        return "\n".join(lines)
 
     def __str__(self):
         return self.render()
