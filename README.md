@@ -65,7 +65,7 @@ Controlled Testing:
 Performance Metrics:
 - Tracks total path cost, nodes expanded, maximum frontier size, iteration counts, and wall-clock execution time.
   
- ### Tech Stack & DependenciesLanguage: 
+ ### Tech Stack & Dependencies Language: 
 - Python 3.x
 - Version Control: Git & GitHub   
   
