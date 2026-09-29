@@ -60,8 +60,7 @@ Performance Metrics:
 - Tracks total path cost, nodes expanded, maximum frontier size, iteration counts, and wall-clock execution time (with a 60-second timeout limit per run).
   
  ### Tech Stack & DependenciesLanguage: 
-- Python 3.x (Standard Library: collections.deque, heapq, time, typing)   
-- Data & Visualization: pandas (tables), matplotlib (plots)
+- Python 3.x
 - Version Control: Git & GitHub   
   
 ---
