@@ -1,8 +1,8 @@
 # CS3810 Mini-Project 1: Search Algorithms for a Cleaning Robot
 
-### Senior Project Repository  
-**Instructor:** Dr. Stephanos  
-**Due Date:** 12/6/26  
+### Introduction to Artificial Intelligence Repository  
+**Instructor:** Xin Wang
+**Due Date:** 10/2/26  
 
 ---
 
