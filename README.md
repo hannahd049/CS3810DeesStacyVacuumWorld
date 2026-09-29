@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-This repository contains the source code and documentation for our senior project: a **web‑based community platform built to support women in computer science and engineering**. The platform is designed to provide a safe, collaborative digital space where students and professionals can connect, share knowledge, and build meaningful academic and career‑focused relationships.
+This repository contains the source code, experimental data, and final report for Mini-Project 1 in CS3810: Introduction to Artificial Intelligence. The goal of this project is to build and evaluate pathfinding planners for an automated grid-based cleaning robot (inspired by the Roomba). Given a known map, a starting position, and a set of dirty cells, the robot must find the cheapest sequence of actions to clean all dirty cells.
 
 ---
 
