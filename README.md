@@ -57,7 +57,7 @@ $h_3$ (Custom Heuristic):
 Controlled Testing: 
 - Runs automated tests across six distinct grid maps ($3\times3$ through $6\times6$).
 Performance Metrics:
-- Tracks total path cost, nodes expanded, maximum frontier size, iteration counts, and wall-clock execution time (with a 60-second timeout limit per run).
+- Tracks total path cost, nodes expanded, maximum frontier size, iteration counts, and wall-clock execution time.
   
  ### Tech Stack & DependenciesLanguage: 
 - Python 3.x
