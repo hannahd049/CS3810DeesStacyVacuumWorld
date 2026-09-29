@@ -14,11 +14,13 @@ This repository contains the source code, experimental data, and final report fo
 
 ## Purpose & Goals
 
-Women in technical fields often face isolation, limited mentorship access, and a lack of supportive academic communities. This project aims to address those challenges by providing:
+Early cleaning robots relied on semi-random movement to cover rooms, which was often slow and inefficient. Modern vacuum robots build maps and use state-space search algorithms to plan optimal routes.
 
-- A secure communication environment  
-- Structured discussion spaces for academic and professional growth  
-- Tools that encourage collaboration, mentorship, and community building  
+The main objectives of this project are:
+- Build a custom Vacuum World grid environment. 
+- Implement and compare classical search algorithms (DFS, A*, and IDA*).
+- Design, prove, and test admissible heuristics ($h_0$, $h_1$, $h_2$, and an optional $h_3$). 
+- Run controlled experiments across various test grids to analyze search performance, path cost, and state-space growth.   
 
 
 ---
