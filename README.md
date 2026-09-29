@@ -2,6 +2,7 @@
 
 ### Introduction to Artificial Intelligence Repository  
 **Instructor:** Xin Wang
+
 **Due Date:** 10/2/26  
 
 ---
