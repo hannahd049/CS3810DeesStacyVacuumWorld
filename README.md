@@ -34,6 +34,35 @@ Vacuum World Environment (VacuumWorld):
 - State Representation: A hashable tuple containing the robot's current position (row, col) and a frozenset of remaining dirty cells.
 - Action Space: MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, and CLEAN.
 - Deterministic Transitions: Actions are returned in a fixed order, ensuring fair comparisons and reproducible node counts.
+
+### Search Algorithms
+Depth-First Search (DFS): 
+- Iterative implementation using an explicit stack and an explored set for cycle detection.
+A* Search:
+- Informed search using a custom priority queue that supports decrease-key operations to handle state reopening optimally.
+Iterative Deepening A* (IDA*):
+- Memory-efficient search that uses depth-limited $f$-cost thresholds to find optimal solutions in linear space.
+
+### Heuristics Evaluated
+$h_0$ (Uniform-Cost Search Baseline): 
+- Always returns 0.   
+$h_1$ (Goal-Count):
+- Returns the number of remaining dirty cells.
+$h_2$ (Goal-Count + Manhattan Distance):
+- Number of remaining dirty cells plus the Manhattan distance to the nearest dirty cell.
+$h_3$ (Custom Heuristic):
+- An admissible heuristic designed to dominate $h_2$.
+
+### Experimental Setup 
+Controlled Testing: 
+- Runs automated tests across six distinct grid maps ($3\times3$ through $6\times6$).
+Performance Metrics:
+- Tracks total path cost, nodes expanded, maximum frontier size, iteration counts, and wall-clock execution time (with a 60-second timeout limit per run).
+  
+ ### Tech Stack & DependenciesLanguage: 
+- Python 3.x (Standard Library: collections.deque, heapq, time, typing)   
+- Data & Visualization: pandas (tables), matplotlib (plots)
+- Version Control: Git & GitHub   
   
 ---
 
