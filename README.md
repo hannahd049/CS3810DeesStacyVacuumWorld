@@ -1,4 +1,4 @@
-# CS3810 Mini-Project 1: Search Algorithms for a Cleaning Robot
+# CS3810 Mini-Project 1: Vacuum World
 
 ### Introduction to Artificial Intelligence Repository  
 **Instructor:** Xin Wang
