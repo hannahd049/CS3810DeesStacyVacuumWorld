@@ -1,4 +1,4 @@
-# CS4960 Senior Project — GirlTalk Meets STEM
+# CS3810 Mini-Project 1: Search Algorithms for a Cleaning Robot
 
 ### Senior Project Repository  
 **Instructor:** Dr. Stephanos  
