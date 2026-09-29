@@ -4,4 +4,4 @@ This document provides a transparent log of all AI tools used in the creation an
 
 | AI Tool | Purpose / Task | Approximate Usage |
 | :--- | :--- | :--- |
-| **Gemini** | Clarifying requirements, debugging, writing documentation templates | ~20% of code assistance, 80% of documentation text |
+| **Gemini** | Clarifying project requirements, debugging code, and drafting documentation templates | ~20% code assistance, ~80% documentation drafting, ~100% requirement clarification
