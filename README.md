@@ -27,49 +27,12 @@ The main objectives of this project are:
 
 ## Core Features
 
-### **Real‑Time Communication**
-- Topic‑based chat channels (Homework Help, Collaboration, Announcements, General Discussion)  
-- Threaded conversations for clarity and organization  
-- Real‑time updates in chats  
-
-### **User Profiles**
-- Customizable profile including:  
-  - Email  
-  - Username  
-  - Profile picture  
-  - Password management  
-- Ability to view other users’ profiles through chat interactions or announcements  
-
-### **Safety & Trust**
-
-- Student Email verification  
-- Reporting tools  
-- Moderation controls  
-- Account authenticity checks  
-
-These features ensure the community remains respectful, supportive, and aligned with the project’s mission.
-
----
-
-## Security Considerations
-
-To maintain a trusted environment, the platform implements:
-
-- Secure authentication  
-- Moderated inputs  
-- Password hashing  
-- Role‑based permissions  
-- Moderation workflows  
-
----
-
-## Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** ASP.NET Web Forms / C#  
-- **Database:** SQL Server  
-- **Real‑Time Messaging:** SignalR or WebSockets  
-- **Version Control:** GitHub  
-
+### Core Features & Environment Specification
+Vacuum World Environment (VacuumWorld):
+- Grid Setup: Rectangular grid with open spaces, obstacles (#), dirty cells (D), and a starting robot position (R).
+- State Representation: A hashable tuple containing the robot's current position (row, col) and a frozenset of remaining dirty cells.
+- Action Space: MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, and CLEAN.
+- Deterministic Transitions: Actions are returned in a fixed order, ensuring fair comparisons and reproducible node counts.
+  
 ---
 
