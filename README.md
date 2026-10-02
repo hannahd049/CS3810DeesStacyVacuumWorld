@@ -56,7 +56,7 @@ $h_2$ (Goal-Count + Manhattan Distance):
 - Number of remaining dirty cells plus the Manhattan distance to the nearest dirty cell.
   
 $h_3$ (Custom Heuristic):
-- An admissible heuristic designed to dominate $h_2$.
+- An admissible heuristic designed to dominate $h_2$. (Not Implemented)
 
 ### Experimental Setup 
 Controlled Testing: 
